@@ -5,6 +5,7 @@ import httpx
 import random
 import io
 import logging
+import itertools
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, JSONResponse
@@ -22,7 +23,6 @@ CACHE_TTL = 240  # 4 minutes
 TELEGRAM_BOT_TOKEN = "7652042264:AAGc6DQ-OkJ8PaBKJnc_NkcCseIwmfbHD-c"
 TELEGRAM_CHAT_ID = "5029478739"
 
-# ✅ Proxy Configuration
 
 PROXY_LIST = [
     "http://tmhcfiqv:ufqev7kx5dwk@84.247.60.125:6095",
@@ -39,19 +39,106 @@ PROXY_LIST = [
     "http://zudcfjwt:rmhlu4rptdpy@84.247.60.125:6095",
     "http://zudcfjwt:rmhlu4rptdpy@216.10.27.159:6837",
     "http://zudcfjwt:rmhlu4rptdpy@136.0.207.84:6661",
-    "http://zudcfjwt:rmhlu4rptdpy@142.147.128.93:6593"
+    "http://zudcfjwt:rmhlu4rptdpy@142.147.128.93:6593",
+
+    # --- tbtjitxc ---
+    "http://tbtjitxc:grxvqm7nmglv@198.23.239.134:6540",
+    "http://tbtjitxc:grxvqm7nmglv@45.38.107.97:6014",
+    "http://tbtjitxc:grxvqm7nmglv@107.172.163.27:6543",
+    "http://tbtjitxc:grxvqm7nmglv@64.137.96.74:6641",
+    "http://tbtjitxc:grxvqm7nmglv@45.43.186.39:6257",
+    "http://tbtjitxc:grxvqm7nmglv@154.203.43.247:5536",
+    "http://tbtjitxc:grxvqm7nmglv@84.247.60.125:6095",
+    "http://tbtjitxc:grxvqm7nmglv@216.10.27.159:6837",
+    "http://tbtjitxc:grxvqm7nmglv@136.0.207.84:6661",
+    "http://tbtjitxc:grxvqm7nmglv@142.147.128.93:6593",
+
+    # --- lpogdtoe ---
+    "http://lpogdtoe:51pqyrokjz2i@198.23.239.134:6540",
+    "http://lpogdtoe:51pqyrokjz2i@45.38.107.97:6014",
+    "http://lpogdtoe:51pqyrokjz2i@107.172.163.27:6543",
+    "http://lpogdtoe:51pqyrokjz2i@64.137.96.74:6641",
+    "http://lpogdtoe:51pqyrokjz2i@45.43.186.39:6257",
+    "http://lpogdtoe:51pqyrokjz2i@154.203.43.247:5536",
+    "http://lpogdtoe:51pqyrokjz2i@84.247.60.125:6095",
+    "http://lpogdtoe:51pqyrokjz2i@216.10.27.159:6837",
+    "http://lpogdtoe:51pqyrokjz2i@136.0.207.84:6661",
+    "http://lpogdtoe:51pqyrokjz2i@142.147.128.93:6593",
+
+    # --- atjnhjkt ---
+    "http://atjnhjkt:eu3ep55xhqmf@198.23.239.134:6540",
+    "http://atjnhjkt:eu3ep55xhqmf@45.38.107.97:6014",
+    "http://atjnhjkt:eu3ep55xhqmf@107.172.163.27:6543",
+    "http://atjnhjkt:eu3ep55xhqmf@64.137.96.74:6641",
+    "http://atjnhjkt:eu3ep55xhqmf@45.43.186.39:6257",
+    "http://atjnhjkt:eu3ep55xhqmf@154.203.43.247:5536",
+    "http://atjnhjkt:eu3ep55xhqmf@84.247.60.125:6095",
+    "http://atjnhjkt:eu3ep55xhqmf@216.10.27.159:6837",
+    "http://atjnhjkt:eu3ep55xhqmf@136.0.207.84:6661",
+    "http://atjnhjkt:eu3ep55xhqmf@142.147.128.93:6593",
+
+    # --- hwllwynb ---
+    "http://hwllwynb:34cu8jntkdjp@198.23.239.134:6540",
+    "http://hwllwynb:34cu8jntkdjp@45.38.107.97:6014",
+    "http://hwllwynb:34cu8jntkdjp@107.172.163.27:6543",
+    "http://hwllwynb:34cu8jntkdjp@64.137.96.74:6641",
+    "http://hwllwynb:34cu8jntkdjp@45.43.186.39:6257",
+    "http://hwllwynb:34cu8jntkdjp@154.203.43.247:5536",
+    "http://hwllwynb:34cu8jntkdjp@84.247.60.125:6095",
+    "http://hwllwynb:34cu8jntkdjp@216.10.27.159:6837",
+    "http://hwllwynb:34cu8jntkdjp@136.0.207.84:6661",
+    "http://hwllwynb:34cu8jntkdjp@142.147.128.93:6593",
+
+    # --- hbawtbmj ---
+    "http://hbawtbmj:b8t1vjdac2o4@198.23.239.134:6540",
+    "http://hbawtbmj:b8t1vjdac2o4@45.38.107.97:6014",
+    "http://hbawtbmj:b8t1vjdac2o4@107.172.163.27:6543",
+    "http://hbawtbmj:b8t1vjdac2o4@64.137.96.74:6641",
+    "http://hbawtbmj:b8t1vjdac2o4@45.43.186.39:6257",
+    "http://hbawtbmj:b8t1vjdac2o4@154.203.43.247:5536",
+    "http://hbawtbmj:b8t1vjdac2o4@84.247.60.125:6095",
+    "http://hbawtbmj:b8t1vjdac2o4@216.10.27.159:6837",
+    "http://hbawtbmj:b8t1vjdac2o4@136.0.207.84:6661",
+    "http://hbawtbmj:b8t1vjdac2o4@142.147.128.93:6593",
+
+    # --- sihyoiej ---
+    "http://sihyoiej:xmmyge8qzbo0@198.23.239.134:6540",
+    "http://sihyoiej:xmmyge8qzbo0@45.38.107.97:6014",
+    "http://sihyoiej:xmmyge8qzbo0@107.172.163.27:6543",
+    "http://sihyoiej:xmmyge8qzbo0@64.137.96.74:6641",
+    "http://sihyoiej:xmmyge8qzbo0@45.43.186.39:6257",
+    "http://sihyoiej:xmmyge8qzbo0@154.203.43.247:5536",
+    "http://sihyoiej:xmmyge8qzbo0@84.247.60.125:6095",
+    "http://sihyoiej:xmmyge8qzbo0@216.10.27.159:6837",
+    "http://sihyoiej:xmmyge8qzbo0@136.0.207.84:6661",
+    "http://sihyoiej:xmmyge8qzbo0@142.147.128.93:6593",
+
+    # --- ecbgkzdh ---
+    "http://ecbgkzdh:ktcg7pog3206@198.23.239.134:6540",
+    "http://ecbgkzdh:ktcg7pog3206@45.38.107.97:6014",
+    "http://ecbgkzdh:ktcg7pog3206@107.172.163.27:6543",
+    "http://ecbgkzdh:ktcg7pog3206@64.137.96.74:6641",
+    "http://ecbgkzdh:ktcg7pog3206@45.43.186.39:6257",
+    "http://ecbgkzdh:ktcg7pog3206@154.203.43.247:5536",
+    "http://ecbgkzdh:ktcg7pog3206@84.247.60.125:6095",
+    "http://ecbgkzdh:ktcg7pog3206@216.10.27.159:6837",
+    "http://ecbgkzdh:ktcg7pog3206@136.0.207.84:6661",
+    "http://ecbgkzdh:ktcg7pog3206@142.147.128.93:6593"
 ]
+
+
+
+
+# ✅ Proxy Round Robin Iterator
+proxy_cycle = itertools.cycle(PROXY_LIST)
+
+def get_next_proxy():
+    return next(proxy_cycle)
 
 # ✅ Logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("instagram-scraper")
 
-# ✅ Async httpx client with connection pooling
-async_client = httpx.AsyncClient(
-    timeout=10.0,
-    limits=httpx.Limits(max_connections=300, max_keepalive_connections=100),
-    follow_redirects=True,
-)
 
 # ✅ Header pool
 HEADERS_POOL = [
@@ -112,13 +199,12 @@ HEADERS_POOL = [
     },
 ]
 
-# ================= Utils =================
+
+
 def get_random_headers():
     return random.choice(HEADERS_POOL)
 
-def get_random_proxy():
-    return random.choice(PROXY_LIST)
-
+# ================= Utils =================
 async def cache_cleaner():
     """Background task to clean expired cache"""
     while True:
@@ -149,7 +235,6 @@ async def handle_error(status_code: int, detail: str, notify_msg: str = None):
 async def lifespan(app: FastAPI):
     asyncio.create_task(cache_cleaner())
     yield
-    await async_client.aclose()
 
 # ================= App Init =================
 app = FastAPI(lifespan=lifespan)
@@ -167,133 +252,57 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ================= Error Handlers =================
-@app.exception_handler(HTTPException)
-async def http_exception_handler(request: Request, exc: HTTPException):
-    if "/scrape/" in str(request.url.path):
-        await notify_telegram(
-            f"⚠️ HTTPException\n"
-            f"Status: {exc.status_code}\n"
-            f"Detail: {exc.detail}\n"
-            f"Path: {request.url.path}"
-        )
-    return JSONResponse(
-        status_code=exc.status_code,
-        content={
-            "error": True,
-            "status_code": exc.status_code,
-            "detail": exc.detail,
-            "path": str(request.url.path),
-            "timestamp": time.time(),
-        },
-    )
-
-@app.exception_handler(RateLimitExceeded)
-async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
-    if "/scrape/" in str(request.url.path):
-        await notify_telegram(
-            f"🚫 Rate Limit Exceeded\n"
-            f"Client: {request.client.host}\n"
-            f"Path: {request.url.path}"
-        )
-    return JSONResponse(
-        status_code=429,
-        content={
-            "error": True,
-            "status_code": 429,
-            "detail": "Rate limit exceeded. Try again later.",
-            "path": str(request.url.path),
-            "timestamp": time.time(),
-        },
-    )
-
-@app.exception_handler(Exception)
-async def global_exception_handler(request: Request, exc: Exception):
-    logger.error(f"Unexpected error: {exc}", exc_info=True)
-    if "/scrape/" in str(request.url.path):
-        await notify_telegram(
-            f"🔥 Unhandled Exception\n"
-            f"Type: {type(exc).__name__}\n"
-            f"Error: {str(exc)}\n"
-            f"Path: {request.url.path}"
-        )
-    return JSONResponse(
-        status_code=500,
-        content={
-            "error": True,
-            "status_code": 500,
-            "detail": "Internal Server Error",
-            "path": str(request.url.path),
-            "timestamp": time.time(),
-        },
-    )
-
 # ================= API Logic =================
-async def scrape_user(username: str):
+async def scrape_user(username: str, max_retries: int = 2):
     username = username.lower()
     cached = CACHE.get(username)
     if cached and cached["expiry"] > time.time():
         return cached["data"]
 
     url = f"https://i.instagram.com/api/v1/users/web_profile_info/?username={username}"
-    
-    # Get random headers and proxy
-    headers = get_random_headers()
-    proxy_url = get_random_proxy()
-    
-    # Configure proxy for httpx
-    proxies = {
-        "http://": proxy_url,
-        "https://": proxy_url
-    }
-    
-    try:
-        # Create a new client with proxy for this request
-        async with httpx.AsyncClient(proxies=proxies, timeout=10.0) as client:
-            result = await client.get(url, headers=headers)
-            
-        if result.status_code != 200:
-            await handle_error(
-                status_code=result.status_code,
-                detail=f"Instagram API returned {result.status_code}",
-                notify_msg=f"Instagram API error for {username}: {result.status_code}"
-            )
-    except httpx.RequestError as e:
-        await handle_error(
-            status_code=502,
-            detail=f"Network error: {str(e)}",
-            notify_msg=f"Network error while scraping {username}: {str(e)}"
-        )
 
-    try:
-        data = result.json()
-    except json.JSONDecodeError:
-        await handle_error(
-            status_code=500,
-            detail="Invalid JSON response from Instagram",
-            notify_msg=f"Invalid JSON response for {username}"
-        )
+    for attempt in range(max_retries):
+        headers = get_random_headers()
+        proxy_url = get_next_proxy()
+        proxies = {"http://": proxy_url, "https://": proxy_url}
 
-    user = data.get("data", {}).get("user")
-    if not user:
-        await handle_error(
-            status_code=404,
-            detail="User data not found in response",
-            notify_msg=f"User data not found in response for {username}"
-        )
+        try:
+            async with httpx.AsyncClient(proxies=proxies, timeout=10.0) as client:
+                result = await client.get(url, headers=headers)
 
-    user_data = {
-        "username": user.get("username"),
-        "real_name": user.get("full_name"),
-        "profile_pic": user.get("profile_pic_url_hd"),
-        "followers": user.get("edge_followed_by", {}).get("count"),
-        "following": user.get("edge_follow", {}).get("count"),
-        "post_count": user.get("edge_owner_to_timeline_media", {}).get("count"),
-        "bio": user.get("biography"),
-    }
+            if result.status_code == 200:
+                try:
+                    data = result.json()
+                except json.JSONDecodeError:
+                    continue
 
-    CACHE[username] = {"data": user_data, "expiry": time.time() + CACHE_TTL}
-    return user_data
+                user = data.get("data", {}).get("user")
+                if not user:
+                    continue
+
+                user_data = {
+                    "username": user.get("username"),
+                    "real_name": user.get("full_name"),
+                    "profile_pic": user.get("profile_pic_url_hd"),
+                    "followers": user.get("edge_followed_by", {}).get("count"),
+                    "following": user.get("edge_follow", {}).get("count"),
+                    "post_count": user.get("edge_owner_to_timeline_media", {}).get("count"),
+                    "bio": user.get("biography"),
+                }
+
+                CACHE[username] = {"data": user_data, "expiry": time.time() + CACHE_TTL}
+                return user_data
+            else:
+                logger.warning(f"Retry {attempt+1}: Proxy {proxy_url} failed with {result.status_code}")
+
+        except httpx.RequestError as e:
+            logger.warning(f"Retry {attempt+1}: Proxy {proxy_url} error: {e}")
+
+    await handle_error(
+        status_code=502,
+        detail="All proxies failed",
+        notify_msg=f"All proxies failed for {username}"
+    )
 
 # ================= Routes =================
 @app.get("/scrape/{username}")
@@ -303,34 +312,25 @@ async def get_user(username: str, request: Request):
 
 @app.get("/proxy-image/")
 @limiter.limit("10/10minute")
-async def proxy_image(request: Request, url: str = Query(..., description="Image URL to proxy")):
-    try:
-        # Get random proxy for image request too
-        proxy_url = get_random_proxy()
-        proxies = {
-            "http://": proxy_url,
-            "https://": proxy_url
-        }
-        
-        async with httpx.AsyncClient(proxies=proxies) as client:
-            resp = await client.get(url)
-            
-        if resp.status_code != 200:
-            raise HTTPException(
-                status_code=resp.status_code,
-                detail="Failed to fetch image"
-            )
-        return StreamingResponse(
-            io.BytesIO(resp.content),
-            media_type=resp.headers.get("content-type", "image/jpeg")
-        )
-    except httpx.RequestError as e:
-        raise HTTPException(
-            status_code=502,
-            detail=f"Network error: {str(e)}"
-        )
+async def proxy_image(request: Request, url: str = Query(..., description="Image URL to proxy"), max_retries: int = 2):
+    for attempt in range(max_retries):
+        proxy_url = get_next_proxy()
+        proxies = {"http://": proxy_url, "https://": proxy_url}
+
+        try:
+            async with httpx.AsyncClient(proxies=proxies, timeout=10.0) as client:
+                resp = await client.get(url)
+
+            if resp.status_code == 200:
+                return StreamingResponse(
+                    io.BytesIO(resp.content),
+                    media_type=resp.headers.get("content-type", "image/jpeg")
+                )
+        except httpx.RequestError as e:
+            logger.warning(f"Retry {attempt+1}: Proxy {proxy_url} error: {e}")
+
+    raise HTTPException(status_code=502, detail="All proxies failed for image fetch")
 
 @app.get("/health")
 async def health_check():
-
     return {"status": "healthy", "timestamp": time.time()}
