@@ -23,17 +23,23 @@ TELEGRAM_BOT_TOKEN = "7652042264:AAGc6DQ-OkJ8PaBKJnc_NkcCseIwmfbHD-c"
 TELEGRAM_CHAT_ID = "5029478739"
 
 # ✅ Proxy Configuration
+
 PROXY_LIST = [
-    "http://tmhcfiqv:ufqev7kx5dwk@198.23.239.134:6540",
-    "http://tmhcfiqv:ufqev7kx5dwk@45.38.107.97:6014",
-    "http://tmhcfiqv:ufqev7kx5dwk@107.172.163.27:6543",
-    "http://tmhcfiqv:ufqev7kx5dwk@64.137.96.74:6641",
-    "http://tmhcfiqv:ufqev7kx5dwk@45.43.186.39:6257",
-    "http://tmhcfiqv:ufqev7kx5dwk@154.203.43.247:5536",
     "http://tmhcfiqv:ufqev7kx5dwk@84.247.60.125:6095",
+    "http://tmhcfiqv:ufqev7kx5dwk@45.38.107.97:6014",
     "http://tmhcfiqv:ufqev7kx5dwk@216.10.27.159:6837",
-    "http://tmhcfiqv:ufqev7kx5dwk@136.0.207.84:6661",
-    "http://tmhcfiqv:ufqev7kx5dwk@142.147.128.93:6593"
+    "http://tmhcfiqv:ufqev7kx5dwk@198.23.239.134:6540",
+    "http://tmhcfiqv:ufqev7kx5dwk@107.172.163.27:6543",
+    "http://zudcfjwt:rmhlu4rptdpy@198.23.239.134:6540",
+    "http://zudcfjwt:rmhlu4rptdpy@45.38.107.97:6014",
+    "http://zudcfjwt:rmhlu4rptdpy@107.172.163.27:6543",
+    "http://zudcfjwt:rmhlu4rptdpy@64.137.96.74:6641",
+    "http://zudcfjwt:rmhlu4rptdpy@45.43.186.39:6257",
+    "http://zudcfjwt:rmhlu4rptdpy@154.203.43.247:5536",
+    "http://zudcfjwt:rmhlu4rptdpy@84.247.60.125:6095",
+    "http://zudcfjwt:rmhlu4rptdpy@216.10.27.159:6837",
+    "http://zudcfjwt:rmhlu4rptdpy@136.0.207.84:6661",
+    "http://zudcfjwt:rmhlu4rptdpy@142.147.128.93:6593"
 ]
 
 # ✅ Logging
@@ -326,4 +332,5 @@ async def proxy_image(request: Request, url: str = Query(..., description="Image
 
 @app.get("/health")
 async def health_check():
+
     return {"status": "healthy", "timestamp": time.time()}
