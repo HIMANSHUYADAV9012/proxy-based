@@ -8,13 +8,12 @@ import logging
 import itertools
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse, JSONResponse
+from fastapi.responses import StreamingResponse
 from contextlib import asynccontextmanager
 
 # ✅ Rate Limiting
 from slowapi import Limiter
 from slowapi.util import get_remote_address
-from slowapi.errors import RateLimitExceeded
 
 # ================= Config =================
 CACHE = {}
@@ -22,7 +21,6 @@ CACHE_TTL = 240  # 4 minutes
 
 TELEGRAM_BOT_TOKEN = "7652042264:AAGc6DQ-OkJ8PaBKJnc_NkcCseIwmfbHD-c"
 TELEGRAM_CHAT_ID = "5029478739"
-
 
 PROXY_LIST = [
     "http://tmhcfiqv:ufqev7kx5dwk@84.247.60.125:6095",
@@ -127,8 +125,6 @@ PROXY_LIST = [
 ]
 
 
-
-
 # ✅ Proxy Round Robin Iterator
 proxy_cycle = itertools.cycle(PROXY_LIST)
 
@@ -138,7 +134,6 @@ def get_next_proxy():
 # ✅ Logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("instagram-scraper")
-
 
 # ✅ Header pool
 HEADERS_POOL = [
@@ -205,6 +200,14 @@ def get_random_headers():
     return random.choice(HEADERS_POOL)
 
 # ================= Utils =================
+def format_error_message(username: str, proxy_url: str, attempt: int, error: str, status_code: int = None):
+    """Format error message for logs and Telegram"""
+    base = f"❌ ERROR | User: {username}\n🔁 Attempt: {attempt}\n🌐 Proxy: {proxy_url}"
+    if status_code:
+        return f"{base}\n📡 Status: {status_code} ({error})"
+    else:
+        return f"{base}\n⚠️ Exception: {error}"
+
 async def cache_cleaner():
     """Background task to clean expired cache"""
     while True:
@@ -293,15 +296,19 @@ async def scrape_user(username: str, max_retries: int = 2):
                 CACHE[username] = {"data": user_data, "expiry": time.time() + CACHE_TTL}
                 return user_data
             else:
-                logger.warning(f"Retry {attempt+1}: Proxy {proxy_url} failed with {result.status_code}")
+                msg = format_error_message(username, proxy_url, attempt+1, "Request Failed", result.status_code)
+                logger.warning(msg)
+                await notify_telegram(msg)
 
         except httpx.RequestError as e:
-            logger.warning(f"Retry {attempt+1}: Proxy {proxy_url} error: {e}")
+            msg = format_error_message(username, proxy_url, attempt+1, str(e))
+            logger.warning(msg)
+            await notify_telegram(msg)
 
     await handle_error(
         status_code=502,
         detail="All proxies failed",
-        notify_msg=f"All proxies failed for {username}"
+        notify_msg=f"🚨 All proxies failed for {username}"
     )
 
 # ================= Routes =================
@@ -312,7 +319,7 @@ async def get_user(username: str, request: Request):
 
 @app.get("/proxy-image/")
 @limiter.limit("10/10minute")
-async def proxy_image(request: Request, url: str = Query(..., description="Image URL to proxy"), max_retries: int = 2):
+async def proxy_image(request: Request, url: str, max_retries: int = 2):
     for attempt in range(max_retries):
         proxy_url = get_next_proxy()
         proxies = {"http://": proxy_url, "https://": proxy_url}
@@ -326,8 +333,15 @@ async def proxy_image(request: Request, url: str = Query(..., description="Image
                     io.BytesIO(resp.content),
                     media_type=resp.headers.get("content-type", "image/jpeg")
                 )
+            else:
+                msg = format_error_message("proxy-image", proxy_url, attempt+1, "Image fetch failed", resp.status_code)
+                logger.warning(msg)
+                await notify_telegram(msg)
+
         except httpx.RequestError as e:
-            logger.warning(f"Retry {attempt+1}: Proxy {proxy_url} error: {e}")
+            msg = format_error_message("proxy-image", proxy_url, attempt+1, str(e))
+            logger.warning(msg)
+            await notify_telegram(msg)
 
     raise HTTPException(status_code=502, detail="All proxies failed for image fetch")
 
