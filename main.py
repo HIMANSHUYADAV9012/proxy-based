@@ -19,7 +19,7 @@ from slowapi.util import get_remote_address
 CACHE = {}
 CACHE_TTL = 240  # 4 minutes
 
-TELEGRAM_BOT_TOKEN = "7652042264:AAGc6DQ-OkJ8PaBKJnc_NkcCseIwmfbHD-c"
+TELEGRAM_BOT_TOKEN = "8155460745:AAEpD9IMpngKLE_FL9N8Km0xMEjJbuNJscs"
 TELEGRAM_CHAT_ID = "5029478739"
 
 PROXY_LIST = [
@@ -276,6 +276,7 @@ async def health_check():
 @app.head("/health")
 async def health_check_head():
     return JSONResponse(content=None, status_code=200)
+
 
 
 
