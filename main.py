@@ -125,33 +125,17 @@ PROXY_LIST = [
 ]
 
 
-# working proxies (updated by tester)
-WORKING_PROXIES = PROXY_LIST.copy()
-# status store: proxy -> {"ok": bool, "latency": float, "last_checked": ts}
-PROXY_STATUS = {p: {"ok": False, "latency": None, "last_checked": None} for p in PROXY_LIST}
+# ✅ Proxy Round Robin Iterator
+proxy_cycle = itertools.cycle(PROXY_LIST)
 
-# round-robin index and lock for safe rotation
-_proxy_index = 0
-_proxy_lock = asyncio.Lock()
-
-# ================= Test config (as requested) =================
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                  "(KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
-    "Accept": "application/json",
-    "Accept-Language": "en-US,en;q=0.9",
-    "x-ig-app-id": "936619743392459",
-}
-
-TEST_URL = "https://i.instagram.com/api/v1/users/web_profile_info/?username=himanshu_yadav479"
-TEST_TIMEOUT = 8.0
-TEST_INTERVAL = 300  # 5 minutes in seconds
+def get_next_proxy():
+    return next(proxy_cycle)
 
 # ✅ Logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("instagram-scraper")
 
-# ✅ Header pool (unchanged)
+# ✅ Header pool
 HEADERS_POOL = [
     {
         "x-ig-app-id": "936619743392459",
@@ -210,6 +194,8 @@ HEADERS_POOL = [
     },
 ]
 
+
+
 def get_random_headers():
     return random.choice(HEADERS_POOL)
 
@@ -247,97 +233,10 @@ async def handle_error(status_code: int, detail: str, notify_msg: str = None):
         await notify_telegram(notify_msg)
     raise HTTPException(status_code=status_code, detail=detail)
 
-# ================= Proxy rotation helper (async) =================
-async def get_next_proxy():
-    """
-    Return next proxy from WORKING_PROXIES in round-robin fashion.
-    If WORKING_PROXIES is empty, fall back to PROXY_LIST.
-    This function is async and uses a lock for concurrency safety.
-    """
-    global _proxy_index, WORKING_PROXIES
-    async with _proxy_lock:
-        pool = WORKING_PROXIES if WORKING_PROXIES else PROXY_LIST
-        if not pool:
-            raise RuntimeError("No proxies configured")
-        proxy = pool[_proxy_index % len(pool)]
-        _proxy_index = (_proxy_index + 1) % (len(pool) if len(pool) > 0 else 1)
-        return proxy
-
-# ================= Proxy tester =================
-async def test_single_proxy(proxy_url: str):
-    """
-    Test a single proxy by fetching TEST_URL with HEADERS and timeout TEST_TIMEOUT.
-    Returns dict: {"ok": bool, "latency": float or None, "status_code": int or None, "error": str or None}
-    """
-    start = time.perf_counter()
-    try:
-        timeout = httpx.Timeout(TEST_TIMEOUT)
-        async with httpx.AsyncClient(proxies={"http://": proxy_url, "https://": proxy_url}, timeout=timeout) as client:
-            resp = await client.get(TEST_URL, headers=HEADERS)
-        latency = time.perf_counter() - start
-        ok = (resp.status_code == 200)
-        return {"ok": ok, "latency": latency if ok else None, "status_code": resp.status_code, "error": None if ok else f"Status {resp.status_code}"}
-    except Exception as e:
-        latency = None
-        return {"ok": False, "latency": None, "status_code": None, "error": str(e)}
-
-async def probe_all_proxies_once():
-    """Probe all proxies in PROXY_LIST and update PROXY_STATUS and WORKING_PROXIES."""
-    global PROXY_STATUS, WORKING_PROXIES
-    results = {}
-    logger.info("Starting proxy probe for %d proxies...", len(PROXY_LIST))
-    # test proxies in parallel but with a semaphore to avoid too many concurrent connections
-    sem = asyncio.Semaphore(100)
-    async def _test(p):
-        async with sem:
-            res = await test_single_proxy(p)
-            PROXY_STATUS[p]["ok"] = res["ok"]
-            PROXY_STATUS[p]["latency"] = res["latency"]
-            PROXY_STATUS[p]["last_checked"] = time.time()
-            logger.info("Probe %s -> ok=%s latency=%s err=%s", p, res["ok"], res["latency"], res["error"])
-            return p, res
-
-    tasks = [asyncio.create_task(_test(p)) for p in PROXY_LIST]
-    await asyncio.gather(*tasks)
-
-    # Build new WORKING_PROXIES sorted by latency (fastest first). If latency is None, put at end.
-    working = [p for p, s in PROXY_STATUS.items() if s.get("ok")]
-    # sort by latency
-    working.sort(key=lambda x: PROXY_STATUS[x]["latency"] if PROXY_STATUS[x]["latency"] is not None else float("inf"))
-    # update the global WORKING_PROXIES in a thread-safe way
-    async with _proxy_lock:
-        WORKING_PROXIES = working.copy()
-        # reset index to avoid out-of-range
-        global _proxy_index
-        _proxy_index = 0
-    logger.info("Proxy probe complete. %d working proxies found.", len(WORKING_PROXIES))
-
-async def probe_loop():
-    """Run probe_all_proxies_once every TEST_INTERVAL seconds forever."""
-    # run first probe immediately at startup
-    try:
-        await probe_all_proxies_once()
-    except Exception as e:
-        logger.exception("Initial proxy probe failed: %s", e)
-    while True:
-        await asyncio.sleep(TEST_INTERVAL)
-        try:
-            await probe_all_proxies_once()
-        except Exception as e:
-            logger.exception("Proxy probe failed: %s", e)
-            # optionally notify once on failure
-            try:
-                await notify_telegram(f"Proxy probe loop error: {e}")
-            except Exception:
-                pass
-
 # ================= Lifespan =================
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # start cache cleaner
     asyncio.create_task(cache_cleaner())
-    # start proxy probe loop
-    asyncio.create_task(probe_loop())
     yield
 
 # ================= App Init =================
@@ -367,7 +266,7 @@ async def scrape_user(username: str, max_retries: int = 2):
 
     for attempt in range(max_retries):
         headers = get_random_headers()
-        proxy_url = await get_next_proxy()
+        proxy_url = get_next_proxy()
         proxies = {"http://": proxy_url, "https://": proxy_url}
 
         try:
@@ -422,7 +321,7 @@ async def get_user(username: str, request: Request):
 @limiter.limit("10/10minute")
 async def proxy_image(request: Request, url: str, max_retries: int = 2):
     for attempt in range(max_retries):
-        proxy_url = await get_next_proxy()
+        proxy_url = get_next_proxy()
         proxies = {"http://": proxy_url, "https://": proxy_url}
 
         try:
@@ -448,9 +347,4 @@ async def proxy_image(request: Request, url: str, max_retries: int = 2):
 
 @app.get("/health")
 async def health_check():
-    return {
-        "status": "healthy",
-        "timestamp": time.time(),
-        "working_proxies_count": len(WORKING_PROXIES),
-        "last_checked": {p: PROXY_STATUS[p]["last_checked"] for p in PROXY_LIST}
-    }
+    return {"status": "healthy", "timestamp": time.time()}
