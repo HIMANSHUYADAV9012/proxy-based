@@ -23,12 +23,25 @@ TELEGRAM_BOT_TOKEN = "7652042264:AAGc6DQ-OkJ8PaBKJnc_NkcCseIwmfbHD-c"
 TELEGRAM_CHAT_ID = "5029478739"
 
 PROXY_LIST = [
-    # from image
+    # from image 
     "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8004",
     "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8005",
     "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8002",
     "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8003",
-    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8001"
+    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8001",
+     # azp 729012
+     "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8004",
+    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8005",
+    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8002",
+    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8003",
+    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8001",
+    # jiopdif 
+     "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8001",
+    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8002",
+    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8003",
+    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8004",
+    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8005",
+
 ]
 
 
@@ -255,4 +268,5 @@ async def proxy_image(request: Request, url: str, max_retries: int = 2):
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "timestamp": time.time()}
+
 
