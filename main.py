@@ -23,105 +23,104 @@ TELEGRAM_BOT_TOKEN = "7652042264:AAGc6DQ-OkJ8PaBKJnc_NkcCseIwmfbHD-c"
 TELEGRAM_CHAT_ID = "5029478739"
 
 PROXY_LIST = [
+    # Host 1 - 84.247.60.125:6095
     "http://tmhcfiqv:ufqev7kx5dwk@84.247.60.125:6095",
-    "http://tmhcfiqv:ufqev7kx5dwk@45.38.107.97:6014",
-    "http://tmhcfiqv:ufqev7kx5dwk@216.10.27.159:6837",
-    "http://tmhcfiqv:ufqev7kx5dwk@198.23.239.134:6540",
-    "http://tmhcfiqv:ufqev7kx5dwk@107.172.163.27:6543",
-    "http://zudcfjwt:rmhlu4rptdpy@198.23.239.134:6540",
-    "http://zudcfjwt:rmhlu4rptdpy@45.38.107.97:6014",
-    "http://zudcfjwt:rmhlu4rptdpy@107.172.163.27:6543",
-    "http://zudcfjwt:rmhlu4rptdpy@64.137.96.74:6641",
-    "http://zudcfjwt:rmhlu4rptdpy@45.43.186.39:6257",
-    "http://zudcfjwt:rmhlu4rptdpy@154.203.43.247:5536",
     "http://zudcfjwt:rmhlu4rptdpy@84.247.60.125:6095",
-    "http://zudcfjwt:rmhlu4rptdpy@216.10.27.159:6837",
-    "http://zudcfjwt:rmhlu4rptdpy@136.0.207.84:6661",
-    "http://zudcfjwt:rmhlu4rptdpy@142.147.128.93:6593",
-
-    # --- tbtjitxc ---
-    "http://tbtjitxc:grxvqm7nmglv@198.23.239.134:6540",
-    "http://tbtjitxc:grxvqm7nmglv@45.38.107.97:6014",
-    "http://tbtjitxc:grxvqm7nmglv@107.172.163.27:6543",
-    "http://tbtjitxc:grxvqm7nmglv@64.137.96.74:6641",
-    "http://tbtjitxc:grxvqm7nmglv@45.43.186.39:6257",
-    "http://tbtjitxc:grxvqm7nmglv@154.203.43.247:5536",
     "http://tbtjitxc:grxvqm7nmglv@84.247.60.125:6095",
-    "http://tbtjitxc:grxvqm7nmglv@216.10.27.159:6837",
-    "http://tbtjitxc:grxvqm7nmglv@136.0.207.84:6661",
-    "http://tbtjitxc:grxvqm7nmglv@142.147.128.93:6593",
-
-    # --- lpogdtoe ---
-    "http://lpogdtoe:51pqyrokjz2i@198.23.239.134:6540",
-    "http://lpogdtoe:51pqyrokjz2i@45.38.107.97:6014",
-    "http://lpogdtoe:51pqyrokjz2i@107.172.163.27:6543",
-    "http://lpogdtoe:51pqyrokjz2i@64.137.96.74:6641",
-    "http://lpogdtoe:51pqyrokjz2i@45.43.186.39:6257",
-    "http://lpogdtoe:51pqyrokjz2i@154.203.43.247:5536",
     "http://lpogdtoe:51pqyrokjz2i@84.247.60.125:6095",
-    "http://lpogdtoe:51pqyrokjz2i@216.10.27.159:6837",
-    "http://lpogdtoe:51pqyrokjz2i@136.0.207.84:6661",
-    "http://lpogdtoe:51pqyrokjz2i@142.147.128.93:6593",
-
-    # --- atjnhjkt ---
-    "http://atjnhjkt:eu3ep55xhqmf@198.23.239.134:6540",
-    "http://atjnhjkt:eu3ep55xhqmf@45.38.107.97:6014",
-    "http://atjnhjkt:eu3ep55xhqmf@107.172.163.27:6543",
-    "http://atjnhjkt:eu3ep55xhqmf@64.137.96.74:6641",
-    "http://atjnhjkt:eu3ep55xhqmf@45.43.186.39:6257",
-    "http://atjnhjkt:eu3ep55xhqmf@154.203.43.247:5536",
     "http://atjnhjkt:eu3ep55xhqmf@84.247.60.125:6095",
-    "http://atjnhjkt:eu3ep55xhqmf@216.10.27.159:6837",
-    "http://atjnhjkt:eu3ep55xhqmf@136.0.207.84:6661",
-    "http://atjnhjkt:eu3ep55xhqmf@142.147.128.93:6593",
-
-    # --- hwllwynb ---
-    "http://hwllwynb:34cu8jntkdjp@198.23.239.134:6540",
-    "http://hwllwynb:34cu8jntkdjp@45.38.107.97:6014",
-    "http://hwllwynb:34cu8jntkdjp@107.172.163.27:6543",
-    "http://hwllwynb:34cu8jntkdjp@64.137.96.74:6641",
-    "http://hwllwynb:34cu8jntkdjp@45.43.186.39:6257",
-    "http://hwllwynb:34cu8jntkdjp@154.203.43.247:5536",
     "http://hwllwynb:34cu8jntkdjp@84.247.60.125:6095",
-    "http://hwllwynb:34cu8jntkdjp@216.10.27.159:6837",
-    "http://hwllwynb:34cu8jntkdjp@136.0.207.84:6661",
-    "http://hwllwynb:34cu8jntkdjp@142.147.128.93:6593",
-
-    # --- hbawtbmj ---
-    "http://hbawtbmj:b8t1vjdac2o4@198.23.239.134:6540",
-    "http://hbawtbmj:b8t1vjdac2o4@45.38.107.97:6014",
-    "http://hbawtbmj:b8t1vjdac2o4@107.172.163.27:6543",
-    "http://hbawtbmj:b8t1vjdac2o4@64.137.96.74:6641",
-    "http://hbawtbmj:b8t1vjdac2o4@45.43.186.39:6257",
-    "http://hbawtbmj:b8t1vjdac2o4@154.203.43.247:5536",
     "http://hbawtbmj:b8t1vjdac2o4@84.247.60.125:6095",
-    "http://hbawtbmj:b8t1vjdac2o4@216.10.27.159:6837",
-    "http://hbawtbmj:b8t1vjdac2o4@136.0.207.84:6661",
-    "http://hbawtbmj:b8t1vjdac2o4@142.147.128.93:6593",
-
-    # --- sihyoiej ---
-    "http://sihyoiej:xmmyge8qzbo0@198.23.239.134:6540",
-    "http://sihyoiej:xmmyge8qzbo0@45.38.107.97:6014",
-    "http://sihyoiej:xmmyge8qzbo0@107.172.163.27:6543",
-    "http://sihyoiej:xmmyge8qzbo0@64.137.96.74:6641",
-    "http://sihyoiej:xmmyge8qzbo0@45.43.186.39:6257",
-    "http://sihyoiej:xmmyge8qzbo0@154.203.43.247:5536",
     "http://sihyoiej:xmmyge8qzbo0@84.247.60.125:6095",
-    "http://sihyoiej:xmmyge8qzbo0@216.10.27.159:6837",
-    "http://sihyoiej:xmmyge8qzbo0@136.0.207.84:6661",
-    "http://sihyoiej:xmmyge8qzbo0@142.147.128.93:6593",
-
-    # --- ecbgkzdh ---
-    "http://ecbgkzdh:ktcg7pog3206@198.23.239.134:6540",
-    "http://ecbgkzdh:ktcg7pog3206@45.38.107.97:6014",
-    "http://ecbgkzdh:ktcg7pog3206@107.172.163.27:6543",
-    "http://ecbgkzdh:ktcg7pog3206@64.137.96.74:6641",
-    "http://ecbgkzdh:ktcg7pog3206@45.43.186.39:6257",
-    "http://ecbgkzdh:ktcg7pog3206@154.203.43.247:5536",
     "http://ecbgkzdh:ktcg7pog3206@84.247.60.125:6095",
+
+    # Host 2 - 45.38.107.97:6014
+    "http://tmhcfiqv:ufqev7kx5dwk@45.38.107.97:6014",
+    "http://zudcfjwt:rmhlu4rptdpy@45.38.107.97:6014",
+    "http://tbtjitxc:grxvqm7nmglv@45.38.107.97:6014",
+    "http://lpogdtoe:51pqyrokjz2i@45.38.107.97:6014",
+    "http://atjnhjkt:eu3ep55xhqmf@45.38.107.97:6014",
+    "http://hwllwynb:34cu8jntkdjp@45.38.107.97:6014",
+    "http://hbawtbmj:b8t1vjdac2o4@45.38.107.97:6014",
+    "http://sihyoiej:xmmyge8qzbo0@45.38.107.97:6014",
+    "http://ecbgkzdh:ktcg7pog3206@45.38.107.97:6014",
+
+    # Host 3 - 216.10.27.159:6837
+    "http://tmhcfiqv:ufqev7kx5dwk@216.10.27.159:6837",
+    "http://zudcfjwt:rmhlu4rptdpy@216.10.27.159:6837",
+    "http://tbtjitxc:grxvqm7nmglv@216.10.27.159:6837",
+    "http://lpogdtoe:51pqyrokjz2i@216.10.27.159:6837",
+    "http://atjnhjkt:eu3ep55xhqmf@216.10.27.159:6837",
+    "http://hwllwynb:34cu8jntkdjp@216.10.27.159:6837",
+    "http://hbawtbmj:b8t1vjdac2o4@216.10.27.159:6837",
+    "http://sihyoiej:xmmyge8qzbo0@216.10.27.159:6837",
     "http://ecbgkzdh:ktcg7pog3206@216.10.27.159:6837",
+
+    # Host 4 - 198.23.239.134:6540
+    "http://tmhcfiqv:ufqev7kx5dwk@198.23.239.134:6540",
+    "http://zudcfjwt:rmhlu4rptdpy@198.23.239.134:6540",
+    "http://tbtjitxc:grxvqm7nmglv@198.23.239.134:6540",
+    "http://lpogdtoe:51pqyrokjz2i@198.23.239.134:6540",
+    "http://atjnhjkt:eu3ep55xhqmf@198.23.239.134:6540",
+    "http://hwllwynb:34cu8jntkdjp@198.23.239.134:6540",
+    "http://hbawtbmj:b8t1vjdac2o4@198.23.239.134:6540",
+    "http://sihyoiej:xmmyge8qzbo0@198.23.239.134:6540",
+    "http://ecbgkzdh:ktcg7pog3206@198.23.239.134:6540",
+
+    # Host 5 - 107.172.163.27:6543
+    "http://tmhcfiqv:ufqev7kx5dwk@107.172.163.27:6543",
+    "http://zudcfjwt:rmhlu4rptdpy@107.172.163.27:6543",
+    "http://tbtjitxc:grxvqm7nmglv@107.172.163.27:6543",
+    "http://lpogdtoe:51pqyrokjz2i@107.172.163.27:6543",
+    "http://atjnhjkt:eu3ep55xhqmf@107.172.163.27:6543",
+    "http://hwllwynb:34cu8jntkdjp@107.172.163.27:6543",
+    "http://hbawtbmj:b8t1vjdac2o4@107.172.163.27:6543",
+    "http://sihyoiej:xmmyge8qzbo0@107.172.163.27:6543",
+    "http://ecbgkzdh:ktcg7pog3206@107.172.163.27:6543",
+
+    # Host 6 - 64.137.96.74:6641
+    "http://tmhcfiqv:ufqev7kx5dwk@64.137.96.74:6641",
+    "http://zudcfjwt:rmhlu4rptdpy@64.137.96.74:6641",
+    "http://tbtjitxc:grxvqm7nmglv@64.137.96.74:6641",
+    "http://lpogdtoe:51pqyrokjz2i@64.137.96.74:6641",
+    "http://atjnhjkt:eu3ep55xhqmf@64.137.96.74:6641",
+    "http://hwllwynb:34cu8jntkdjp@64.137.96.74:6641",
+    "http://hbawtbmj:b8t1vjdac2o4@64.137.96.74:6641",
+    "http://sihyoiej:xmmyge8qzbo0@64.137.96.74:6641",
+    "http://ecbgkzdh:ktcg7pog3206@64.137.96.74:6641",
+
+    # Host 7 - 45.43.186.39:6257
+    "http://tmhcfiqv:ufqev7kx5dwk@45.43.186.39:6257",
+    "http://zudcfjwt:rmhlu4rptdpy@45.43.186.39:6257",
+    "http://tbtjitxc:grxvqm7nmglv@45.43.186.39:6257",
+    "http://lpogdtoe:51pqyrokjz2i@45.43.186.39:6257",
+    "http://atjnhjkt:eu3ep55xhqmf@45.43.186.39:6257",
+    "http://hwllwynb:34cu8jntkdjp@45.43.186.39:6257",
+    "http://hbawtbmj:b8t1vjdac2o4@45.43.186.39:6257",
+    "http://sihyoiej:xmmyge8qzbo0@45.43.186.39:6257",
+    "http://ecbgkzdh:ktcg7pog3206@45.43.186.39:6257",
+
+    # Host 8 - 154.203.43.247:5536
+    "http://tmhcfiqv:ufqev7kx5dwk@154.203.43.247:5536",
+    "http://zudcfjwt:rmhlu4rptdpy@154.203.43.247:5536",
+    "http://tbtjitxc:grxvqm7nmglv@154.203.43.247:5536",
+    "http://lpogdtoe:51pqyrokjz2i@154.203.43.247:5536",
+    "http://atjnhjkt:eu3ep55xhqmf@154.203.43.247:5536",
+    "http://hwllwynb:34cu8jntkdjp@154.203.43.247:5536",
+    "http://hbawtbmj:b8t1vjdac2o4@154.203.43.247:5536",
+    "http://sihyoiej:xmmyge8qzbo0@154.203.43.247:5536",
+    "http://ecbgkzdh:ktcg7pog3206@154.203.43.247:5536",
+
+    # Host 9 - 136.0.207.84:6661
+    "http://tmhcfiqv:ufqev7kx5dwk@136.0.207.84:6661",
+    "http://zudcfjwt:rmhlu4rptdpy@136.0.207.84:6661",
+    "http://tbtjitxc:grxvqm7nmglv@136.0.207.84:6661",
+    "http://lpogdtoe:51pqyrokjz2i@136.0.207.84:6661",
+    "http://atjnhjkt:eu3ep55xhqmf@136.0.207.84:6661",
+    "http://hwllwynb:34cu8jntkdjp@136.0.207.84:6661",
+    "http://hbawtbmj:b8t1vjdac2o4@136.0.207.84:6661",
+    "http://sihyoiej:xmmyge8qzbo0@136.0.207.84:6661",
     "http://ecbgkzdh:ktcg7pog3206@136.0.207.84:6661",
-    "http://ecbgkzdh:ktcg7pog3206@142.147.128.93:6593"
 ]
 
 
@@ -348,3 +347,4 @@ async def proxy_image(request: Request, url: str, max_retries: int = 2):
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "timestamp": time.time()}
+
