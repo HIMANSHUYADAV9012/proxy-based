@@ -23,24 +23,21 @@ TELEGRAM_BOT_TOKEN = "8155460745:AAEpD9IMpngKLE_FL9N8Km0xMEjJbuNJscs"
 TELEGRAM_CHAT_ID = "5029478739"
 
 PROXY_LIST = [
-    # from image 
-    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8004",
-    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8005",
-    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8002",
-    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8003",
-    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8001",
-     # azp 729012
-     "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8004",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8005",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8002",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8003",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8001",
-    # jiopdif 
-     "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8001",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8002",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8003",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8004",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8005",
+    # MPI JID 
+       
+    "http://Himanshu_EBzUQ:9012ABCabc__@dc.oxylabs.io:8001",
+    "http://Himanshu_EBzUQ:9012ABCabc__@dc.oxylabs.io:8002",
+    "http://Himanshu_EBzUQ:9012ABCabc__@dc.oxylabs.io:8003",
+    "http://Himanshu_EBzUQ:9012ABCabc__@dc.oxylabs.io:8004",
+    "http://Himanshu_EBzUQ:9012ABCabc__@dc.oxylabs.io:8005",
+      # ASHVANI YADAV 3243
+
+    "http://Himanshu_aDtbt:9012ABCabc__@dc.oxylabs.io:8001",
+    "http://Himanshu_aDtbt:9012ABCabc__@dc.oxylabs.io:8002",
+    "http://Himanshu_aDtbt:9012ABCabc__@dc.oxylabs.io:8003",
+    "http://Himanshu_aDtbt:9012ABCabc__@dc.oxylabs.io:8004",
+    "http://Himanshu_aDtbt:9012ABCabc__@dc.oxylabs.io:8005"
+
 
 ]
 
@@ -276,6 +273,7 @@ async def health_check():
 @app.head("/health")
 async def health_check_head():
     return JSONResponse(content=None, status_code=200)
+
 
 
 
