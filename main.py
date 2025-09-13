@@ -23,18 +23,16 @@ TELEGRAM_BOT_TOKEN = "8155460745:AAEpD9IMpngKLE_FL9N8Km0xMEjJbuNJscs"
 TELEGRAM_CHAT_ID = "5029478739"
 
 PROXY_LIST =  [
-    "http://tmhcfiqv:ufqev7kx5dwk@216.10.27.159:6837",
-    "http://zudcfjwt:rmhlu4rptdpy@216.10.27.159:6837",
-    "http://zudcfjwt:rmhlu4rptdpy@136.0.207.84:6661",
-    "http://tbtjitxc:grxvqm7nmglv@216.10.27.159:6837",
-    "http://lpogdtoe:51pqyrokjz2i@216.10.27.159:6837",
-    "http://atjnhjkt:eu3ep55xhqmf@216.10.27.159:6837",
-    "http://hwllwynb:34cu8jntkdjp@216.10.27.159:6837",
-    "http://hbawtbmj:b8t1vjdac2o4@216.10.27.159:6837",
-    "http://sihyoiej:xmmyge8qzbo0@216.10.27.159:6837",
-    "http://ecbgkzdh:ktcg7pog3206@216.10.27.159:6837"
+    "http://tmhcfiqv:ufqev7kx5dwk@107.172.163.27:6543",
+    "http://zudcfjwt:rmhlu4rptdpy@142.147.128.93:6593",
+    "http://tbtjitxc:grxvqm7nmglv@142.147.128.93:6593",
+    "http://lpogdtoe:51pqyrokjz2i@142.147.128.93:6593",
+    "http://atjnhjkt:eu3ep55xhqmf@142.147.128.93:6593",
+    "http://hwllwynb:34cu8jntkdjp@142.147.128.93:6593",
+    "http://hbawtbmj:b8t1vjdac2o4@142.147.128.93:6593",
+    "http://sihyoiej:xmmyge8qzbo0@142.147.128.93:6593",
+    "http://ecbgkzdh:ktcg7pog3206@142.147.128.93:6593"
   ]
-  
 
 
 
@@ -269,6 +267,7 @@ async def health_check():
 @app.head("/health")
 async def health_check_head():
     return JSONResponse(content=None, status_code=200)
+
 
 
 
