@@ -23,23 +23,42 @@ TELEGRAM_BOT_TOKEN = "8155460745:AAEpD9IMpngKLE_FL9N8Km0xMEjJbuNJscs"
 TELEGRAM_CHAT_ID = "5029478739"
 
 PROXY_LIST = [
-    # MPI JID 
-       
-    "http://Himanshu_EBzUQ:9012ABCabc__@dc.oxylabs.io:8001",
-    "http://Himanshu_EBzUQ:9012ABCabc__@dc.oxylabs.io:8002",
-    "http://Himanshu_EBzUQ:9012ABCabc__@dc.oxylabs.io:8003",
-    "http://Himanshu_EBzUQ:9012ABCabc__@dc.oxylabs.io:8004",
-    "http://Himanshu_EBzUQ:9012ABCabc__@dc.oxylabs.io:8005",
-      # ASHVANI YADAV 3243
-
-    "http://Himanshu_aDtbt:9012ABCabc__@dc.oxylabs.io:8001",
-    "http://Himanshu_aDtbt:9012ABCabc__@dc.oxylabs.io:8002",
-    "http://Himanshu_aDtbt:9012ABCabc__@dc.oxylabs.io:8003",
-    "http://Himanshu_aDtbt:9012ABCabc__@dc.oxylabs.io:8004",
-    "http://Himanshu_aDtbt:9012ABCabc__@dc.oxylabs.io:8005"
-
-
+    "http://tmhcfiqv:ufqev7kx5dwk@45.38.107.97:6014",
+    "http://tmhcfiqv:ufqev7kx5dwk@198.23.239.134:6540",
+    "http://tmhcfiqv:ufqev7kx5dwk@107.172.163.27:6543",
+    "http://zudcfjwt:rmhlu4rptdpy@198.23.239.134:6540",
+    "http://zudcfjwt:rmhlu4rptdpy@45.38.107.97:6014",
+    "http://zudcfjwt:rmhlu4rptdpy@107.172.163.27:6543",
+    "http://zudcfjwt:rmhlu4rptdpy@45.43.186.39:6257",
+    "http://tbtjitxc:grxvqm7nmglv@198.23.239.134:6540",
+    "http://tbtjitxc:grxvqm7nmglv@45.38.107.97:6014",
+    "http://tbtjitxc:grxvqm7nmglv@107.172.163.27:6543",
+    "http://tbtjitxc:grxvqm7nmglv@45.43.186.39:6257",
+    "http://lpogdtoe:51pqyrokjz2i@198.23.239.134:6540",
+    "http://lpogdtoe:51pqyrokjz2i@45.38.107.97:6014",
+    "http://lpogdtoe:51pqyrokjz2i@107.172.163.27:6543",
+    "http://lpogdtoe:51pqyrokjz2i@45.43.186.39:6257",
+    "http://atjnhjkt:eu3ep55xhqmf@198.23.239.134:6540",
+    "http://atjnhjkt:eu3ep55xhqmf@45.38.107.97:6014",
+    "http://atjnhjkt:eu3ep55xhqmf@107.172.163.27:6543",
+    "http://atjnhjkt:eu3ep55xhqmf@45.43.186.39:6257",
+    "http://hwllwynb:34cu8jntkdjp@198.23.239.134:6540",
+    "http://hwllwynb:34cu8jntkdjp@45.38.107.97:6014",
+    "http://hwllwynb:34cu8jntkdjp@107.172.163.27:6543",
+    "http://hwllwynb:34cu8jntkdjp@45.43.186.39:6257",
+    "http://hbawtbmj:b8t1vjdac2o4@198.23.239.134:6540",
+    "http://hbawtbmj:b8t1vjdac2o4@45.38.107.97:6014",
+    "http://hbawtbmj:b8t1vjdac2o4@107.172.163.27:6543",
+    "http://hbawtbmj:b8t1vjdac2o4@45.43.186.39:6257",
+    "http://sihyoiej:xmmyge8qzbo0@198.23.239.134:6540",
+    "http://sihyoiej:xmmyge8qzbo0@45.38.107.97:6014",
+    "http://sihyoiej:xmmyge8qzbo0@107.172.163.27:6543",
+    "http://ecbgkzdh:ktcg7pog3206@198.23.239.134:6540",
+    "http://ecbgkzdh:ktcg7pog3206@45.38.107.97:6014",
+    "http://ecbgkzdh:ktcg7pog3206@107.172.163.27:6543",
+    "http://ecbgkzdh:ktcg7pog3206@45.43.186.39:6257"
 ]
+
 
 
 # ✅ Proxy Round Robin Iterator
@@ -273,6 +292,7 @@ async def health_check():
 @app.head("/health")
 async def health_check_head():
     return JSONResponse(content=None, status_code=200)
+
 
 
 
