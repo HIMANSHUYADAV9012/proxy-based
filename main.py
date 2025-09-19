@@ -23,53 +23,43 @@ TELEGRAM_BOT_TOKEN = "8155460745:AAEpD9IMpngKLE_FL9N8Km0xMEjJbuNJscs"
 TELEGRAM_CHAT_ID = "5029478739"
 
 PROXY_LIST = [
-"http://tmhcfiqv:ufqev7kx5dwk@45.38.107.97:6014",
-    "http://tmhcfiqv:ufqev7kx5dwk@216.10.27.159:6837",
-    "http://tmhcfiqv:ufqev7kx5dwk@198.23.239.134:6540",
-    "http://zudcfjwt:rmhlu4rptdpy@198.23.239.134:6540",
-    "http://zudcfjwt:rmhlu4rptdpy@45.38.107.97:6014",
+ "http://zudcfjwt:rmhlu4rptdpy@64.137.96.74:6641",
+    "http://zudcfjwt:rmhlu4rptdpy@154.203.43.247:5536",
+    "http://zudcfjwt:rmhlu4rptdpy@84.247.60.125:6095",
     "http://zudcfjwt:rmhlu4rptdpy@142.147.128.93:6593",
     "http://tbtjitxc:grxvqm7nmglv@198.23.239.134:6540",
     "http://tbtjitxc:grxvqm7nmglv@45.38.107.97:6014",
-    "http://tbtjitxc:grxvqm7nmglv@216.10.27.159:6837",
+    "http://tbtjitxc:grxvqm7nmglv@107.172.163.27:6543",
+    "http://tbtjitxc:grxvqm7nmglv@64.137.96.74:6641",
+    "http://tbtjitxc:grxvqm7nmglv@154.203.43.247:5536",
+    "http://tbtjitxc:grxvqm7nmglv@84.247.60.125:6095",
     "http://tbtjitxc:grxvqm7nmglv@142.147.128.93:6593",
     "http://lpogdtoe:51pqyrokjz2i@198.23.239.134:6540",
     "http://lpogdtoe:51pqyrokjz2i@45.38.107.97:6014",
-    "http://lpogdtoe:51pqyrokjz2i@216.10.27.159:6837",
-    "http://lpogdtoe:51pqyrokjz2i@142.147.128.93:6593",
-    "http://atjnhjkt:eu3ep55xhqmf@198.23.239.134:6540",
-    "http://atjnhjkt:eu3ep55xhqmf@45.38.107.97:6014",
-    "http://atjnhjkt:eu3ep55xhqmf@216.10.27.159:6837",
-    "http://atjnhjkt:eu3ep55xhqmf@142.147.128.93:6593",
-    "http://hwllwynb:34cu8jntkdjp@198.23.239.134:6540",
-    "http://hwllwynb:34cu8jntkdjp@45.38.107.97:6014",
-    "http://hwllwynb:34cu8jntkdjp@216.10.27.159:6837",
-    "http://hwllwynb:34cu8jntkdjp@142.147.128.93:6593",
-    "http://hbawtbmj:b8t1vjdac2o4@198.23.239.134:6540",
+    "http://lpogdtoe:51pqyrokjz2i@107.172.163.27:6543",
+    "http://atjnhjkt:eu3ep55xhqmf@64.137.96.74:6641",
     "http://hbawtbmj:b8t1vjdac2o4@45.38.107.97:6014",
-    "http://hbawtbmj:b8t1vjdac2o4@216.10.27.159:6837",
+    "http://hbawtbmj:b8t1vjdac2o4@107.172.163.27:6543",
+    "http://hbawtbmj:b8t1vjdac2o4@64.137.96.74:6641",
+    "http://hbawtbmj:b8t1vjdac2o4@154.203.43.247:5536",
+    "http://hbawtbmj:b8t1vjdac2o4@84.247.60.125:6095",
     "http://hbawtbmj:b8t1vjdac2o4@142.147.128.93:6593",
     "http://sihyoiej:xmmyge8qzbo0@198.23.239.134:6540",
-    "http://sihyoiej:xmmyge8qzbo0@45.38.107.97:6014",
-    "http://sihyoiej:xmmyge8qzbo0@216.10.27.159:6837",
+    "http://sihyoiej:xmmyge8qzbo0@107.172.163.27:6543",
+    "http://sihyoiej:xmmyge8qzbo0@64.137.96.74:6641",
+    "http://sihyoiej:xmmyge8qzbo0@154.203.43.247:5536",
+    "http://sihyoiej:xmmyge8qzbo0@84.247.60.125:6095",
+    "http://sihyoiej:xmmyge8qzbo0@142.147.128.93:6593",
     "http://ecbgkzdh:ktcg7pog3206@198.23.239.134:6540",
     "http://ecbgkzdh:ktcg7pog3206@45.38.107.97:6014",
-    "http://ecbgkzdh:ktcg7pog3206@216.10.27.159:6837",
+    "http://ecbgkzdh:ktcg7pog3206@107.172.163.27:6543",
+    "http://ecbgkzdh:ktcg7pog3206@64.137.96.74:6641",
+    "http://ecbgkzdh:ktcg7pog3206@154.203.43.247:5536",
+    "http://ecbgkzdh:ktcg7pog3206@84.247.60.125:6095",
     "http://ecbgkzdh:ktcg7pog3206@142.147.128.93:6593",
-    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8004",
-    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8005",
-    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8002",
     "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8003",
-    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8001",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8004",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8005",
     "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8002",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8003",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8001",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8002",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8003",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8004",
-    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8005"
+    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8004"
   ]
 
 
@@ -305,6 +295,7 @@ async def health_check():
 @app.head("/health")
 async def health_check_head():
     return JSONResponse(content=None, status_code=200)
+
 
 
 
