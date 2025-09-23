@@ -23,19 +23,48 @@ TELEGRAM_BOT_TOKEN = "7652042264:AAGc6DQ-OkJ8PaBKJnc_NkcCseIwmfbHD-c"
 TELEGRAM_CHAT_ID = "5029478739"
 
 PROXY_LIST = [
-     "http://tmhcfiqv:ufqev7kx5dwk@198.23.239.134:6540",
+   "http://tmhcfiqv:ufqev7kx5dwk@84.247.60.125:6095",
+    "http://tmhcfiqv:ufqev7kx5dwk@45.38.107.97:6014",
+    "http://tmhcfiqv:ufqev7kx5dwk@198.23.239.134:6540",
     "http://zudcfjwt:rmhlu4rptdpy@198.23.239.134:6540",
+    "http://zudcfjwt:rmhlu4rptdpy@107.172.163.27:6543",
+    "http://zudcfjwt:rmhlu4rptdpy@84.247.60.125:6095",
+    "http://zudcfjwt:rmhlu4rptdpy@142.147.128.93:6593",
     "http://tbtjitxc:grxvqm7nmglv@198.23.239.134:6540",
+    "http://tbtjitxc:grxvqm7nmglv@45.38.107.97:6014",
+    "http://tbtjitxc:grxvqm7nmglv@107.172.163.27:6543",
+    "http://tbtjitxc:grxvqm7nmglv@84.247.60.125:6095",
+    "http://tbtjitxc:grxvqm7nmglv@142.147.128.93:6593",
     "http://lpogdtoe:51pqyrokjz2i@198.23.239.134:6540",
+    "http://lpogdtoe:51pqyrokjz2i@45.38.107.97:6014",
+    "http://lpogdtoe:51pqyrokjz2i@107.172.163.27:6543",
+    "http://lpogdtoe:51pqyrokjz2i@84.247.60.125:6095",
+    "http://lpogdtoe:51pqyrokjz2i@142.147.128.93:6593",
     "http://atjnhjkt:eu3ep55xhqmf@198.23.239.134:6540",
-    "http://hwllwynb:34cu8jntkdjp@198.23.239.134:6540",
-    "http://hbawtbmj:b8t1vjdac2o4@198.23.239.134:6540",
-    "http://sihyoiej:xmmyge8qzbo0@198.23.239.134:6540",
-    "http://ecbgkzdh:ktcg7pog3206@198.23.239.134:6540",
+    "http://atjnhjkt:eu3ep55xhqmf@45.38.107.97:6014",
+    "http://atjnhjkt:eu3ep55xhqmf@107.172.163.27:6543",
+    "http://atjnhjkt:eu3ep55xhqmf@84.247.60.125:6095",
+    "http://atjnhjkt:eu3ep55xhqmf@142.147.128.93:6593",
+    "http://hwllwynb:34cu8jntkdjp@45.38.107.97:6014",
+    "http://hwllwynb:34cu8jntkdjp@107.172.163.27:6543",
+    "http://hwllwynb:34cu8jntkdjp@64.137.96.74:6641",
+    "http://hwllwynb:34cu8jntkdjp@84.247.60.125:6095",
+    "http://hbawtbmj:b8t1vjdac2o4@45.38.107.97:6014",
+    "http://hbawtbmj:b8t1vjdac2o4@107.172.163.27:6543",
+    "http://hbawtbmj:b8t1vjdac2o4@84.247.60.125:6095",
+    "http://sihyoiej:xmmyge8qzbo0@45.38.107.97:6014",
+    "http://sihyoiej:xmmyge8qzbo0@107.172.163.27:6543",
+    "http://sihyoiej:xmmyge8qzbo0@84.247.60.125:6095",
+    "http://ecbgkzdh:ktcg7pog3206@45.38.107.97:6014",
+    "http://ecbgkzdh:ktcg7pog3206@107.172.163.27:6543",
+    "http://ecbgkzdh:ktcg7pog3206@84.247.60.125:6095",
     "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8004",
     "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8005",
     "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8002",
-    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8003"
+    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8003",
+    "http://himanshu_2SuPS:9012ABCabc__@dc.oxylabs.io:8001",
+    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8004",
+    "http://himanshu_Rm9oO:9012ABCabc__@dc.oxylabs.io:8005"
 ]
 
 # ✅ Proxy Round Robin Iterator (backup use)
@@ -255,4 +284,5 @@ async def stats():
         "proxy_fail": STATS["proxy_fail"],
         "last_alerts": STATS["last_alerts"]
     }
+
 
